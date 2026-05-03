@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://cvpyp72d4yyey"]
+
+[ext_resource type="Texture2D" uid="uid://bn5o6bj8nctpd" path="res://icon.svg" id="1_v0l8b"]
+[ext_resource type="Script" uid="uid://dgs6xmyi6p7q7" path="res://scene/main.gd" id="1_wp4xf"]
+[ext_resource type="Texture2D" uid="uid://ugxo7htdeipj" path="res://image/all_button_0001.png" id="2_wp4xf"]
+[ext_resource type="Texture2D" uid="uid://bd3fldsgjnred" path="res://image/all_button_2_0002.png" id="4_0ha60"]
+[ext_resource type="Texture2D" uid="uid://d2joqvtvif3h5" path="res://image/all_button_2_0001.png" id="5_4j5ol"]
+
+[node name="Node2D" type="Node2D" unique_id=271120010]
+script = ExtResource("1_wp4xf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=843797120]
+position = Vector2(584, 328)
+scale = Vector2(10.125, 6.125)
+texture = ExtResource("1_v0l8b")
+
+[node name="MarginContainer" type="MarginContainer" parent="Sprite2D" unique_id=1637455751]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -84.0
+offset_right = -44.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Sprite2D/MarginContainer" unique_id=479574041]
+layout_mode = 2
+icon = ExtResource("2_wp4xf")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Sprite2D" unique_id=586091180]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -84.0
+offset_right = -44.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LineEdit" type="LineEdit" parent="Sprite2D/MarginContainer2" unique_id=1359792945]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="Sprite2D" unique_id=1760439050]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -84.0
+offset_right = -44.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Sprite2D/MarginContainer3" unique_id=1181718057]
+layout_mode = 2
+texture_under = ExtResource("4_0ha60")
+texture_progress = ExtResource("5_4j5ol")
+
+[node name="MarginContainer4" type="MarginContainer" parent="Sprite2D" unique_id=584991945]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.888885
+offset_top = -114.93878
+offset_right = -23.111115
+offset_bottom = -17.632652
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Sprite2D/MarginContainer4" unique_id=1187728035]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sprite2D/MarginContainer4/ScrollContainer" unique_id=1346808117]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Sprite2D/MarginContainer4/ScrollContainer/VBoxContainer" unique_id=1314973417]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=451008018]
+use_threads = true
+
+[node name="Loading_screen_Timer" type="Timer" parent="." unique_id=1981876894]
+
+[connection signal="pressed" from="Sprite2D/MarginContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="text_submitted" from="Sprite2D/MarginContainer2/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="timeout" from="Loading_screen_Timer" to="." method="_on_loading_screen_timer_timeout"]
